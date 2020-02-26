@@ -1,12 +1,13 @@
 FROM node:11-alpine
 
+RUN apk update && \
+    apk add --no-cache git openssh bash && \
+    addgroup -S circleci && adduser -S circleci -G circleci
+
 RUN npm i -g github-release-notes
 
-RUN apk update && \
-    apk add --no-cache git openssh
-
-USER node
-
 ENV PATH $PATH:/usr/local/bin
+
+USER circleci
 
 ENTRYPOINT ["gren"]
