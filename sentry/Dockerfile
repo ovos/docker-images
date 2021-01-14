@@ -4,10 +4,11 @@ RUN apk update && \
     apk add --no-cache git openssh bash && \
     addgroup -S circleci && adduser -S circleci -G circleci
 
-RUN npm i -g github-release-notes
+ENV SENTRY_DNS https://github.com/getsentry/sentry-cli/releases/download/
+RUN npm i -g @sentry/cli --sentrycli_cdnurl=${SENTRY_DNS} --unsafe-perm
 
 ENV PATH $PATH:/usr/local/bin
 
 USER circleci
 
-ENTRYPOINT ["gren"]
+ENTRYPOINT ["sentry-cli"]

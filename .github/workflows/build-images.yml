@@ -1,0 +1,24 @@
+name: docker-images build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-images:
+    name: ovos/ci:${{ matrix.image }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: [gren, less, sentry, cypress12]
+    steps:
+      - uses: actions/checkout@v2
+      - name:
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ovos/ci
+          tags: ${{ matrix.image }}
+          path: ${{ matrix.image }}
