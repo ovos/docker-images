@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: [gren, less, sentry, cypress12]
+        image: [gren, less, sentry, cypress12, node14]
     steps:
       - uses: actions/checkout@v2
-      - name:
+      - name: build:${{ matrix.image }}
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
