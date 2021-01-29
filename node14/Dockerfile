@@ -2,6 +2,10 @@ FROM circleci/node:14
 
 USER root
 
+RUN apt-get update \
+    && apt-get install --yes wget nginx \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
 ENV DOCKERIZE_VERSION=v0.13.1
 RUN mkdir -p /usr/local/bin/ \
 	&& wget https://github.com/powerman/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | tr '[:upper:]' '[:lower:]') -O /usr/local/bin/dockerize \
