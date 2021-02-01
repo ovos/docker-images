@@ -4,12 +4,13 @@ USER root
 
 RUN apt-get update \
     && apt-get install --yes wget nginx \
-    && chown -R circleci:circleci /etc/nginx /var/log/nginx \
-    && rm -rf /etc/nginx/sites-enabled/* \
-    && rm -rf /etc/nginx/sites-available/* \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 COPY nginx.conf /etc/nginx/nginx.conf
+
+RUN chown -R circleci:circleci /etc/nginx /var/log/nginx \
+    && rm -rf /etc/nginx/sites-enabled/* \
+    && rm -rf /etc/nginx/sites-available/*
 
 ENV DOCKERIZE_VERSION=v0.13.1
 RUN mkdir -p /usr/local/bin/ \
