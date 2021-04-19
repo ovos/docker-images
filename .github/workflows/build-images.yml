@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: [gren, less, sentry, cypress12, node14]
+        image: [gren, less, sentry, cypress12, node14, satis]
     steps:
       - uses: actions/checkout@v2
       -
