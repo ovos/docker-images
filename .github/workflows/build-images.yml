@@ -12,6 +12,7 @@ jobs:
     name: ovos/ci:${{ matrix.image }}
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         image: [gren, less, sentry, cypress12, cypress14, cypress16, node14, node16, satis]
     steps:
