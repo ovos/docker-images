@@ -1,4 +1,4 @@
-FROM cypress/base:16
+FROM cypress/base:16.14.2
 
 USER root
 
