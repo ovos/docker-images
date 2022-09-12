@@ -6,6 +6,7 @@ on:
       - master
   schedule:
     - cron: "0 1 */14 * *" # At 01:00 on every 14th day-of-month. crontab.guru
+  workflow_dispatch:
 
 jobs:
   build-images:
