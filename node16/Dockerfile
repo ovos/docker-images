@@ -1,4 +1,4 @@
-FROM circleci/node:16
+FROM cimg/node:16
 
 USER root
 
