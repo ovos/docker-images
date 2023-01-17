@@ -15,7 +15,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: [gren, less, sentry, cypress12, cypress14, cypress16, node14, node16, satis]
+        image:
+          - gren
+          - less
+          - sentry
+          - cypress12
+          - cypress14
+          - cypress16
+          - cypress18
+          - node14
+          - node16
+          - node18
+          - satis
     steps:
       - uses: actions/checkout@v2
       -
