@@ -1,7 +1,7 @@
 FROM node:18-alpine
 
 RUN apk update && \
-    apk add --no-cache git openssh bash && \
+    apk add --no-cache git openssh bash perl-utils && \
     addgroup -S circleci && adduser -S circleci -G circleci
 
 ENV SENTRY_DNS https://github.com/getsentry/sentry-cli/releases/download/
