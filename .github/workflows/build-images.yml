@@ -27,6 +27,7 @@ jobs:
           - node16
           - node18
           - satis
+          - playwright1
     steps:
       - uses: actions/checkout@v2
       -
