@@ -17,7 +17,7 @@ RUN mkdir -p /usr/local/bin/ \
 	&& wget https://github.com/powerman/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | tr '[:upper:]' '[:lower:]') -O /usr/local/bin/dockerize \
 	&& chmod +x /usr/local/bin/dockerize
 
-RUN npm install -g madge
+RUN npm install -g madge@6.1.0
 
 USER circleci
 
