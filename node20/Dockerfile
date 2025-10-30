@@ -1,3 +1,5 @@
+FROM powerman/dockerize:0.24.0 AS dockerize
+
 FROM cimg/node:20.19
 
 USER root
@@ -12,10 +14,7 @@ RUN chown -R circleci:circleci /etc/nginx /var/log/nginx \
     && rm -rf /etc/nginx/sites-enabled/* \
     && rm -rf /etc/nginx/sites-available/*
 
-ENV DOCKERIZE_VERSION=v0.24.0
-RUN mkdir -p /usr/local/bin/ \
-	&& wget https://github.com/powerman/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | tr '[:upper:]' '[:lower:]') -O /usr/local/bin/dockerize \
-	&& chmod +x /usr/local/bin/dockerize
+COPY --from=dockerize /usr/local/bin/dockerize /usr/local/bin/
 
 RUN npm install -g madge@6.1.0
 
