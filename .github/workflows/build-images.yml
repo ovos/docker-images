@@ -19,9 +19,6 @@ jobs:
           - gren
           - less
           - sentry
-          - cypress12
-          - cypress14
-          - cypress16
           - cypress18
           - node14
           - node16
