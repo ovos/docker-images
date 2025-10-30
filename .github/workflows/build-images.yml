@@ -25,16 +25,16 @@ jobs:
           - satis
           - playwright1
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       -
         name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: build:${{ matrix.image }}
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
           pull: true
           push: true
