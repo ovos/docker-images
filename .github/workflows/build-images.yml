@@ -26,6 +26,8 @@ jobs:
           - node14
           - node16
           - node18
+          - node20
+          - node22
           - satis
           - playwright1
     steps:
