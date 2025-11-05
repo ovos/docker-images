@@ -1,6 +1,6 @@
 FROM powerman/dockerize:0.24.0 AS dockerize
 
-FROM mcr.microsoft.com/playwright:v1.56.1-noble
+FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION:-1.48.2}-noble
 
 USER root
 
