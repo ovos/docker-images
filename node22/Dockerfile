@@ -1,4 +1,4 @@
-FROM powerman/dockerize:0.24.0 AS dockerize
+FROM powerman/dockerize:0.25.0 AS dockerize
 
 FROM cimg/node:22.23
 
