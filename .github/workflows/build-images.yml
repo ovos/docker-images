@@ -19,7 +19,6 @@ jobs:
           - gren
           - less
           - sentry
-          - cypress18
           - node22
           - node24
           - satis
