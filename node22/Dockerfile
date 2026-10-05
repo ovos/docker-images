@@ -1,6 +1,6 @@
 FROM powerman/dockerize:0.24.0 AS dockerize
 
-FROM cimg/node:22.21
+FROM cimg/node:22.23
 
 USER root
 
