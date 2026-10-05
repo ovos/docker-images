@@ -1,6 +1,6 @@
 FROM powerman/dockerize:0.25.0 AS dockerize
 
-FROM node:22-bookworm
+FROM node:24-bookworm
 
 RUN apt-get update \
     && apt-get install --yes wget curl nginx default-mysql-client lftp \
